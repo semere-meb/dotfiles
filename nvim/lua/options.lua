@@ -1,11 +1,15 @@
-vim.opt.nu = true
-vim.opt.relativenumber = true
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.clipboard = "unnamedplus"
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
+require "nvchad.options"
+
+-- add yours here!
+
+-- local o = vim.o
+-- o.cursorlineopt ='both' -- to enable cursorline!
+local o = vim.o
+
+-- Indenting
+o.expandtab = false
+o.shiftwidth = 4
+o.tabstop = 4
+o.softtabstop = 4
+
+o.relativenumber = true
