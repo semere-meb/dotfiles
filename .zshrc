@@ -32,10 +32,10 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 # Add in snippets
-zinit snippet OMZL::git.zsh
-zinit snippet OMZP::git
+# zinit snippet OMZL::git.zsh
+# zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
+# zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -76,20 +76,19 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ll='ls -la --color'
 alias vim='nvim'
 alias c='clear'
-
-# Shell integrations
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-
-export PATH="$PATH:$HOME/flutter/bin"
 alias com='cc -Wall -Wextra -Werror *.c'
 alias run="./a.out"
 alias form="c_formatter_42 **/*.c"
 alias norm="norminette -R CheckForbiddenSourceHeader"
 alias mini='~/mini-moulinette/mini-moul.sh'
 
-# custom variables, 42 header
-alias mini='~/mini-moulinette/mini-moul.sh'
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
+export EDITOR=nvim
+# my dev env
+export PATH="$PATH:$HOME/flutter/bin"
 export USER42="smebraht@student.42abudhabi.ae"
 export EMAIL42="@42abudhabi.ae"
 export SCHOOL42="42 Abu Dhabi"				## example 42/1337 (optional)
