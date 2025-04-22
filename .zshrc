@@ -76,9 +76,9 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ll='ls -la --color'
 alias vim='nvim'
 alias c='clear'
-alias com='cc -Wall -Wextra -Werror *.c'
+alias com='cc -Wall -Wextra -Werror'
 alias run="./a.out"
-alias form="c_formatter_42 **/*.c"
+alias form="c_formatter_42 **/*.{c,h}"
 alias norm="norminette -R CheckForbiddenSourceHeader"
 alias mini='~/mini-moulinette/mini-moul.sh'
 
@@ -87,6 +87,7 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 export EDITOR=nvim
+
 # my dev env
 export PATH="$PATH:$HOME/flutter/bin"
 export USER42="smebraht@student.42abudhabi.ae"
