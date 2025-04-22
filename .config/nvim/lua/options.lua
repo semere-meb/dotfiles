@@ -13,3 +13,6 @@ o.tabstop = 4
 o.softtabstop = 4
 
 o.relativenumber = true
+o.scrolloff = 5
+o.sidescrolloff = 8
+o.sidescroll = 1

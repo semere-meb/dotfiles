@@ -1,4 +1,4 @@
-window-title-font-family = JetBrainsMono Nerd Font
+window-title-font-family = JetBrainsMonoNL Nerd Font
 theme = catppuccin-mocha
 background = #1e1e2e
 foreground = #cdd6f4
@@ -23,8 +23,8 @@ palette = 13=#f2aede
 palette = 14=#6bd7ca
 palette = 15=#bac2de
 font-size = 13.5
-font-family = JetBrainsMonoNL NF SemiBold
-font-family-bold = JetBrainsMono Nerd Font
-font-family-italic = JetBrainsMono Nerd Font
-font-family-bold-italic = JetBrainsMono Nerd Font
+font-family = JetBrainsMonoNL Nerd Font 
+font-family-bold = JetBrainsMonoNL Nerd Font 
+font-family-italic = JetBrainsMonoNL Nerd Font 
+font-family-bold-italic = JetBrainsMonoNL Nerd Font 
 font-style=normal
