@@ -197,5 +197,8 @@
   "theme.bar.buttons.workspaces.fontSize": "1.0em",
   "theme.bar.buttons.workspaces.pill.height": "4em",
   "theme.bar.buttons.workspaces.pill.active_width": "12em",
-  "menus.dashboard.powermenu.sleep": "systemctl hibernate"
+  "menus.dashboard.powermenu.sleep": "systemctl hibernate",
+  "theme.bar.buttons.notifications.enableBorder": false,
+  "theme.bar.buttons.media.enableBorder": false,
+  "bar.media.show_active_only": true
 }
