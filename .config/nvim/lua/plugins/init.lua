@@ -2,7 +2,7 @@ return {
 
     {
         "mfussenegger/nvim-dap",
-        config = function()
+        config = function(_, _)
             require "configs.dap"
         end,
     },
@@ -14,6 +14,10 @@ return {
     {
         "jay-babu/mason-nvim-dap.nvim",
         event = "VeryLazy",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "mfussenegger/nvim-dap",
+        },
         config = function()
             require "configs.mason-dap"
         end,
@@ -21,6 +25,7 @@ return {
 
     {
         "rcarriga/nvim-dap-ui",
+        event = "VeryLazy",
         dependencies = {
             "mfussenegger/nvim-dap",
             "nvim-neotest/nvim-nio",
@@ -101,8 +106,23 @@ return {
             require "configs.mason-lint"
         end,
     },
+
     {
         "christoomey/vim-tmux-navigator",
         lazy = false,
+        config = function()
+            require "configs.tmux-navigate"
+        end,
+    },
+
+    {
+        "mikavilpas/yazi.nvim",
+        event = "VeryLazy", -- or "CmdlineEnter", "BufWinEnter", etc
+        dependencies = {
+            "folke/snacks.nvim",
+        },
+        config = function()
+            require "configs.yazi"
+        end,
     },
 }
