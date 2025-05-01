@@ -79,7 +79,7 @@ alias vim='nvim'
 alias c='clear'
 alias com='cc -Wall -Wextra -Werror'
 alias run="./a.out"
-alias form="c_formatter_42 **/*.{c,h}"
+alias form="c_formatter_42 **/*.[ch]"
 alias norm="norminette -R CheckForbiddenSourceHeader"
 alias mini='~/mini-moulinette/mini-moul.sh'
 

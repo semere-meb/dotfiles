@@ -189,7 +189,7 @@
   ],
   "theme.font.size": "1.0rem",
   "menus.clock.time.hideSeconds": false,
-  "bar.clock.format": "%a %b %d  %I:%M %p",
+  "bar.clock.format": "%a %d/%m  %H:%M",
   "bar.autoHide": "never",
   "bar.workspaces.show_numbered": true,
   "bar.workspaces.numbered_active_indicator": "highlight",
@@ -200,5 +200,6 @@
   "menus.dashboard.powermenu.sleep": "systemctl hibernate",
   "theme.bar.buttons.notifications.enableBorder": false,
   "theme.bar.buttons.media.enableBorder": false,
-  "bar.media.show_active_only": true
+  "bar.media.show_active_only": true,
+  "bar.battery.hideLabelWhenFull": false
 }
