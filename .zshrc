@@ -70,27 +70,21 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias ll='ls -la --color'
 alias grep='grep --color'
 alias vim='nvim'
-alias c='clear'
-alias com='cc -Wall -Wextra -Werror'
-alias run="./a.out"
+alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range=:500 {} || head -n 500 {}'"
+alias com="cc -Wall -Wextra -Werror"
 alias form="c_formatter_42 **/*.[ch]"
-alias norm="norminette -R CheckForbiddenSourceHeader"
-alias mini='~/mini-moulinette/mini-moul.sh'
+alias norm="norminette **/*.[ch]"
 
 # Shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+# eval "$(zoxide init --cmd cd zsh)"
 
 export EDITOR=nvim
 
 # my dev env
-export PATH="$PATH:$HOME/flutter/bin"
-export USER42="smebraht@student.42abudhabi.ae"
-export EMAIL42="@42abudhabi.ae"
-export SCHOOL42="42 Abu Dhabi"				## example 42/1337 (optional)
