@@ -5,9 +5,9 @@
 	"spacing": 3,
 	"margin": 0,
 	"modules-left": [
-		"hyprland/workspaces",
+		"hyprland/workspaces"
 	],
-	"modules-center": [],
+	"modules-center": ["hyprland/window"],
 	"modules-right": [
 		"idle_inhibitor" ,
 		"tray",
@@ -146,5 +146,5 @@
 			"balanced": "",
 			"power-saver": ""
 		}
-	},
+	}
 }
