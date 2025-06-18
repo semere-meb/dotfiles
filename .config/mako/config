@@ -1,0 +1,59 @@
+# Complete mako configuration with all options
+
+# Visual appearance
+font=JetBrains Mono 10
+background-color=#282828
+text-color=#ebdbb2
+# border-color=#458588
+border-size=3
+border-radius=12
+padding=15,15
+margin=10
+
+# Positioning and sizing
+anchor=top-right
+width=400
+height=150
+max-visible=3
+sort=-time
+layer=overlay
+
+# Behavior settings
+default-timeout=5000
+ignore-timeout=false
+group-by=app-name,summary
+max-history=50
+history=true
+
+# Icon settings
+icons=true
+icon-path=/usr/share/icons/Adwaita:/usr/share/icons/hicolor
+max-icon-size=64
+
+# Progress bar
+progress-color=#458588
+
+# Markup and formatting
+markup=true
+format=<b>%s</b>\n%b
+max-icon-size=64
+
+# Actions
+actions=true
+
+# Criteria-based rules
+[urgency=critical]
+border-color=#cc241d
+background-color=#3c1f1e
+default-timeout=0
+
+[urgency=high]
+border-color=#d79921
+background-color=#3c3836
+
+[app-name="Firefox"]
+default-timeout=10000
+# max-history=10
+
+[summary~=".*password.*"]
+invisible=1

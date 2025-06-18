@@ -5,3 +5,10 @@
 .config/pulse/
 qBittorrent/
 .gnupg/
+
+.config
+.config/git
+.config/menus
+.config/qt6ct
+.config/systemd/user/graphical-session.target.wants
+.config/tmux/plugins

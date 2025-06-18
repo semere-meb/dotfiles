@@ -25,15 +25,19 @@ return { -- Autoformat
         return {
           timeout_ms = 500,
           lsp_format = "fallback",
+          -- lsp_fallback = false,
         }
       end
     end,
     formatters_by_ft = {
       lua = { "stylua" },
+      python = {
+        command = "ruff",
+        args = { "format", "-" },
+        stdin = true,
+      },
+      -- c = { "clang-format" },
       -- Conform can also run multiple formatters sequentially
-      python = { "ruff" },
-      c = { "clang-format" },
-      --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
     },

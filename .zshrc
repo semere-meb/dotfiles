@@ -1,3 +1,4 @@
+export TERM=xterm-256color
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -25,6 +26,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+
+# To customize prompt, run `p10k configure` or edit ~/projects/dotfiles/.p10k.zsh.
+[[ ! -f ~/projects/dotfiles/.p10k.zsh ]] || source ~/projects/dotfiles/.p10k.zsh
 
 # Add in snippets
 # zinit snippet OMZL::git.zsh
@@ -65,7 +69,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias ll='ls -la --color'
@@ -78,9 +82,26 @@ alias norm="norminette **/*.[ch]"
 
 # Shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+# eval "$(zoxide init --cmd cd zsh)"
 
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 
 # my dev env
+export QT_QPA_PLATFORM=xcb
+
+export CONDA_AUTO_ACTIVATE_BASE=false
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/semere/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/semere/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/semere/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/semere/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
