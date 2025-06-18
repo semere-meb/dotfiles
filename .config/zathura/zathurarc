@@ -1,1 +1,4 @@
 set selection-clipboard clipboard
+set save-position true
+set adjust-open "width"
+set page-padding 0
