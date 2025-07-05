@@ -33,7 +33,7 @@ zinit light Aloxaf/fzf-tab
 # Add in snippets
 # zinit snippet OMZL::git.zsh
 # zinit snippet OMZP::git
-zinit snippet OMZP::sudo
+# zinit snippet OMZP::sudo
 # zinit snippet OMZP::archlinux
 # zinit snippet OMZP::command-not-found
 
@@ -71,6 +71,10 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+# Shell integrations
+eval "$(fzf --zsh)"
+# eval "$(zoxide init --cmd cd zsh)"
+
 # Aliases
 alias ll='ls -la --color'
 alias grep='grep --color'
@@ -80,17 +84,12 @@ alias com="cc -Wall -Wextra -Werror"
 alias form="c_formatter_42 **/*.[ch]"
 alias norm="norminette **/*.[ch]"
 
-# Shell integrations
-eval "$(fzf --zsh)"
-# eval "$(zoxide init --cmd cd zsh)"
-
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 
 # my dev env
-export QT_QPA_PLATFORM=xcb
-
 export CONDA_AUTO_ACTIVATE_BASE=false
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/semere/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
