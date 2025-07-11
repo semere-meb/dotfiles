@@ -80,9 +80,7 @@ alias ll='ls -la --color'
 alias grep='grep --color'
 alias vim='nvim'
 alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range=:500 {} || head -n 500 {}'"
-alias com="cc -Wall -Wextra -Werror"
-alias form="c_formatter_42 **/*.[ch]"
-alias norm="norminette **/*.[ch]"
+alias py='python -q'
 
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
