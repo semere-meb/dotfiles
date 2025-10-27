@@ -166,9 +166,8 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       local servers = {
-        -- clangd = {},
+        -- dartls = {},
         -- gopls = {},
-        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -178,7 +177,8 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
-
+        clangd = {},
+        pyright = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
