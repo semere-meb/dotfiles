@@ -33,8 +33,8 @@ zinit light Aloxaf/fzf-tab
 # Add in snippets
 # zinit snippet OMZL::git.zsh
 # zinit snippet OMZP::git
-# zinit snippet OMZP::sudo
-# zinit snippet OMZP::archlinux
+zinit snippet OMZP::sudo
+zinit snippet OMZP::archlinux
 # zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -69,36 +69,31 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Shell integrations
 eval "$(fzf --zsh)"
-# eval "$(zoxide init --cmd cd zsh)"
 
 # Aliases
 alias ll='ls -la --color'
 alias grep='grep --color'
 alias vim='nvim'
 alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range=:500 {} || head -n 500 {}'"
-alias py='python -q'
+alias com="cc -Wall -Werror -Wextra"
+alias form="c_formatter_42 **/*.c"
+alias norm="norminette . -R CheckForbiddenSourceHeader"
+alias taskmaster='task-master'
+alias tm='task-master'
 
+alias mini='~/mini-moulinette/mini-moul.sh'
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
+export QT_QPA_PLATFORM=xcb
 
-# my dev env
-export CONDA_AUTO_ACTIVATE_BASE=false
+export ANDROID_HOME="$HOME/Android/Sdk/"
+export FLUTTER_HOME="$HOME/flutter/"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/semere/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/semere/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/semere/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/semere/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator/"
+export PATH="$PATH:$FLUTTER_HOME/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"
+
+source /usr/share/nvm/init-nvm.sh
