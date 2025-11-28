@@ -1,12 +1,12 @@
 # Complete mako configuration with all options
 
 # Visual appearance
-font=JetBrains Mono 10
+font=JetBrains Mono 11
 background-color=#282828
 text-color=#ebdbb2
 # border-color=#458588
-border-size=3
-border-radius=12
+border-size=2
+border-radius=0
 padding=15,15
 margin=10
 
