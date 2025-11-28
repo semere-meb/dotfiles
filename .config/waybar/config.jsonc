@@ -8,6 +8,7 @@
 	],
 	"modules-center": [],
 	"modules-right": [
+        "tray",
 		"pulseaudio",
 		"network",
 		"backlight",
@@ -21,9 +22,9 @@
         "all-outputs": true,
         "warp-on-scroll": false,
         "format": "{name}",
-		"persistent-workspaces": {
-			"*": 5
-		}
+		// "persistent-workspaces": {
+		// 	"*": 5
+		// }
     },
 
 	"clock": {
@@ -73,7 +74,7 @@
 		"format-disconnected": "󰖪 Disconnected",
 		"format-alt": "{ifname}: {ipaddr}/{cidr}",
 		"tooltip-format": "{ifname}: {ipaddr} {signalStrength}%",
-		"on-click": "kitty -e nmtui"
+		"on-click": "nm-applet &"
 	},
 
 	"pulseaudio": {

@@ -70,30 +70,31 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-# Shell integrations
-eval "$(fzf --zsh)"
+source /usr/share/nvm/init-nvm.sh
 
 # Aliases
 alias ll='ls -la --color'
 alias grep='grep --color'
-alias vim='nvim'
 alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range=:500 {} || head -n 500 {}'"
-alias com="cc -Wall -Werror -Wextra"
-alias form="c_formatter_42 **/*.c"
+alias com="cc -Wall -Werror -Wextra -o prog"
+alias run="./prog"
+alias form="c_formatter_42 **/*.[c,h]"
 alias norm="norminette . -R CheckForbiddenSourceHeader"
 alias taskmaster='task-master'
 alias tm='task-master'
+alias vim=nvim
 
-alias mini='~/mini-moulinette/mini-moul.sh'
+# exports
+export MANPAGER="nvim +Man!"
 export EDITOR=nvim
-export MANPAGER='nvim +Man!'
+export VISUAL=nvim
 export QT_QPA_PLATFORM=xcb
-
 export ANDROID_HOME="$HOME/Android/Sdk/"
 export FLUTTER_HOME="$HOME/flutter/"
+export GPG_TTY=/dev/pts/0
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator/"
 export PATH="$PATH:$FLUTTER_HOME/bin"
 export PATH="$PATH:$HOME/.pub-cache/bin"
-
-source /usr/share/nvm/init-nvm.sh
+export PATH="$HOME/.local/bin:$PATH"
