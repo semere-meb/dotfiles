@@ -83,11 +83,12 @@ alias norm="norminette . -R CheckForbiddenSourceHeader"
 alias taskmaster='task-master'
 alias tm='task-master'
 alias vim=nvim
+alias hx=helix
 
 # exports
 export MANPAGER="nvim +Man!"
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR=helix
+export VISUAL=helix
 export QT_QPA_PLATFORM=xcb
 export ANDROID_HOME="$HOME/Android/Sdk/"
 export FLUTTER_HOME="$HOME/flutter/"
