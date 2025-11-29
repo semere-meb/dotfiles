@@ -1,14 +1,35 @@
 theme = "onedark"
 
 [editor]
-
+# idle-timeout	
 line-number = "relative"
-mouse = false
+# mouse = false
+# cursorline = true # Highlight all lines with a cursor
+color-modes = true # Whether to color the mode indicator with different colors depending on the mode itself
+# auto-format = true
+# clipboard-provider = "pasteboard"
+completion-timeout = 5
 
 [editor.cursor-shape]
-insert = "bar"
 normal = "block"
-select = "underline"
+insert = "block"
+select = "block"
 
 [editor.file-picker]
 hidden = false
+git-ignore = true
+
+[editor.inline-diagnostics]
+cursor-line = "disable"
+other-lines = "disable"
+
+[editor.statusline]
+left = ["mode", "file-type", "file-base-name", "version-control"]
+center = ["read-only-indicator"]
+right = ["diagnostics",  "primary-selection-length", "selections", "position" ,"total-line-numbers"]
+separator = "│"
+mode.normal = "RW"
+mode.insert = "**"
+mode.select = "**"
+
+
