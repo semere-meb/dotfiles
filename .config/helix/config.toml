@@ -31,5 +31,3 @@ separator = "│"
 mode.normal = "RW"
 mode.insert = "**"
 mode.select = "**"
-
-
