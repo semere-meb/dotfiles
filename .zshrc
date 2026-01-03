@@ -56,13 +56,16 @@ HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
+setopt append_history inc_append_history share_history
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+setopt dot_glob
+setopt extended_glob
+setopt auto_menu menu_complete
+setopt auto_param_slash
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -82,20 +85,32 @@ alias form="c_formatter_42 **/*.[c,h]"
 alias norm="norminette . -R CheckForbiddenSourceHeader"
 alias taskmaster='task-master'
 alias tm='task-master'
-alias vim=nvim
 alias hx=helix
+alias val='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all' 
 
 # exports
-export MANPAGER="nvim +Man!"
+# export MANPAGER="nvim +Man!"
 export EDITOR=helix
 export VISUAL=helix
-export QT_QPA_PLATFORM=xcb
+# export MANPAGER="nvim +Man!"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export GPG_TTY=$TTY
+gpg-connect-agent updatestartuptty /bye 2>&1 > /dev/null
 export ANDROID_HOME="$HOME/Android/Sdk/"
 export FLUTTER_HOME="$HOME/flutter/"
-export GPG_TTY=/dev/pts/0
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator/"
 export PATH="$PATH:$FLUTTER_HOME/bin"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Use fzf for reverse history search
+fzf-history-widget() {
+  BUFFER=$(fc -l 1 | sed 's/^[ ]*[0-9]*[ ]*//' | fzf --height 40% --reverse --tac)
+  CURSOR=$#BUFFER
+  zle reset-prompt
+}
+
+zle -N fzf-history-widget
+bindkey '^R' fzf-history-widget
