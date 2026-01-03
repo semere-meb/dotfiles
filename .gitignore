@@ -16,3 +16,10 @@ qBittorrent/
 .config/electron-*
 .config/configstore
 
+.config/BraveSoftware/
+.config/Code/
+.config/VSCodium/
+.config/ghostty/
+.config/go/
+.config/nextjs-nodejs/
+.config/systemd/
