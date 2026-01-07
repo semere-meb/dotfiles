@@ -73,7 +73,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-source /usr/share/nvm/init-nvm.sh
+# source /usr/share/nvm/init-nvm.sh
 
 # Aliases
 alias ll='ls -la --color'
@@ -91,26 +91,26 @@ alias val='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
 # exports
 # export MANPAGER="nvim +Man!"
 export EDITOR=helix
-export VISUAL=helix
 # export MANPAGER="nvim +Man!"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
 export GPG_TTY=$TTY
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpg-connect-agent updatestartuptty /bye 2>&1 > /dev/null
+
 export ANDROID_HOME="$HOME/Android/Sdk/"
 export FLUTTER_HOME="$HOME/flutter/"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
-export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator/"
-export PATH="$PATH:$FLUTTER_HOME/bin"
-export PATH="$PATH:$HOME/.pub-cache/bin"
-export PATH="$HOME/.local/bin:$PATH"
+# export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator/"
+# export PATH="$PATH:$FLUTTER_HOME/bin"
+# export PATH="$PATH:$HOME/.pub-cache/bin"
+# export PATH="$HOME/.local/bin:$PATH"
 
 # Use fzf for reverse history search
-fzf-history-widget() {
-  BUFFER=$(fc -l 1 | sed 's/^[ ]*[0-9]*[ ]*//' | fzf --height 40% --reverse --tac)
-  CURSOR=$#BUFFER
-  zle reset-prompt
-}
+# fzf-history-widget() {
+#   BUFFER=$(fc -l 1 | sed 's/^[ ]*[0-9]*[ ]*//' | fzf --height 40% --reverse --tac)
+#   CURSOR=$#BUFFER
+#   zle reset-prompt
+# }
 
-zle -N fzf-history-widget
-bindkey '^R' fzf-history-widget
+# zle -N fzf-history-widget
+# bindkey '^R' fzf-history-widget
