@@ -1,0 +1,8 @@
+[user]
+	name = Semere M. Mebrahtom
+	email = semere.meharena1@gmail.com
+	signingkey = 451054EEC0D2AFD1741D4E6A7FC937214DF30488
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
