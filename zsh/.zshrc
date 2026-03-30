@@ -1,10 +1,12 @@
-export TERM=xterm-256color
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+export COLORTERM=truecolor
+export TERM=xterm-256color
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -34,7 +36,7 @@ zinit light Aloxaf/fzf-tab
 # zinit snippet OMZL::git.zsh
 # zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
+# zinit snippet OMZP::archlinux
 # zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -50,6 +52,18 @@ bindkey -v
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+# bindkey "^R" history-incremental-search-backward   
+fzf-history-widget() {
+  local selected
+  selected=$(fc -rl 1 \
+    | sed 's/^[[:space:]]*[0-9]\+[[:space:]]*//' \
+    | fzf --query="$LBUFFER" --height=40% --reverse --tiebreak=index --no-sort)
+
+  [[ -n $selected ]] || return
+  LBUFFER=$selected
+}
+zle -N fzf-history-widget
+bindkey '^R' fzf-history-widget
 
 # History
 HISTSIZE=5000
@@ -73,44 +87,36 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-# source /usr/share/nvm/init-nvm.sh
-
 # Aliases
-alias ll='ls -la --color'
+alias ll='ls -lha --color'
 alias grep='grep --color'
 alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range=:500 {} || head -n 500 {}'"
-alias com="cc -Wall -Werror -Wextra -o prog"
+alias com="cc -Wall -Werror -Wextra"
 alias run="./prog"
 alias form="c_formatter_42 **/*.[c,h]"
 alias norm="norminette . -R CheckForbiddenSourceHeader"
 alias taskmaster='task-master'
 alias tm='task-master'
 alias hx=helix
-alias val='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all' 
+alias val='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
+alias hel='valgrind --tool=helgrind'
+alias py="python"
 
 # exports
 # export MANPAGER="nvim +Man!"
 export EDITOR=helix
-# export MANPAGER="nvim +Man!"
+export VISUAL=helix
 
 export GPG_TTY=$TTY
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpg-connect-agent updatestartuptty /bye 2>&1 > /dev/null
 
-export ANDROID_HOME="$HOME/Android/Sdk/"
-export FLUTTER_HOME="$HOME/flutter/"
-
+# export ANDROID_HOME="$HOME/Android/Sdk/"
+# export FLUTTER_HOME="$HOME/flutter/"
+#
 # export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator/"
 # export PATH="$PATH:$FLUTTER_HOME/bin"
 # export PATH="$PATH:$HOME/.pub-cache/bin"
 # export PATH="$HOME/.local/bin:$PATH"
 
-# Use fzf for reverse history search
-# fzf-history-widget() {
-#   BUFFER=$(fc -l 1 | sed 's/^[ ]*[0-9]*[ ]*//' | fzf --height 40% --reverse --tac)
-#   CURSOR=$#BUFFER
-#   zle reset-prompt
-# }
-
-# zle -N fzf-history-widget
-# bindkey '^R' fzf-history-widget
+export PATH="$PATH:/home/ser/.local/bin"

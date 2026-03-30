@@ -1,0 +1,36 @@
+[[language]]
+name = "python"
+auto-format = true
+
+language-servers = ["ty", "ruff"]
+
+formatter = { command = "ruff", args = ["format", "-"] }
+
+[language-server.ty]
+command = "ty"
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[[language]]
+name = "cpp"
+auto-format = true
+language-servers = ["clangd"]
+formatter = { command = "c_formatter_42" }
+
+[[language]]
+name = "c"
+auto-format = true
+language-servers = ["clangd"]
+formatter = { command = "c_formatter_42" }
+
+[language-server.clangd]
+command = "clangd"
+args = [
+  "--background-index",
+  "--header-insertion=iwyu",
+  "--completion-style=detailed",
+  "--clang-tidy"
+]
+
