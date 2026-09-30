@@ -1,0 +1,44 @@
+## Python
+
+[[language]]
+name = "python"
+language-servers = ["ty", "ruff"]
+auto-format = true
+
+[language.formatter]
+command = "ruff"
+args = ["format", "-"]
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
+
+## C
+
+[[language]]
+name = "c"
+language-servers = ["clangd"]
+auto-format = true
+
+[language.formatter]
+command = "clang-format"
+args = ["--style=file"]
+
+[language-server.clangd]
+command = "clangd"
+
+
+## markdown
+
+# [language-server.zk]
+# command = "zk"
+# args = ["lsp"]
+
+# [[language]]
+# name = "markdown"
+# language-servers = ["zk"]

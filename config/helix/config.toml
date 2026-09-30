@@ -1,0 +1,75 @@
+theme = "gruvbox"
+
+[editor]
+true-color = true
+line-number = "relative"
+mouse = false
+color-modes = true
+auto-format = true
+completion-timeout = 5
+completion-replace = true
+preview-completion-insert = true
+scrolloff = 8
+cursorline = true
+auto-info = true
+rulers = [80]
+bufferline = "always"
+shell = ["bash", "-c"]
+jump-label-alphabet = "asdfghjklqwertyuiopzxcvbnm"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "disable"
+
+[editor.file-picker]
+hidden = false
+git-ignore = true
+git-global = true
+
+[editor.statusline]
+left = ["mode", "file-base-name", "version-control"]
+center = []
+right = ["diagnostics", "selections", "position", "file-encoding", "file-type"]
+separator = "│"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.indent-guides]
+render = true
+character = "│"
+skip-levels = 1
+
+[editor.soft-wrap]
+enable = false
+
+[editor.smart-tab]
+enable = true
+supersede-menu = false
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+C-y = [
+  ':sh rm -f /tmp/files2open',
+  ':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/files2open',
+  ':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':redraw',
+  ':open /tmp/files2open',
+  'select_all',
+  'split_selection_on_newline',
+  'goto_file',
+  ':buffer-close! /tmp/files2open',
+]
+C-g = [
+  ':new',
+  ':insert-output lazygit',
+  ':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':buffer-close!',
+  ':redraw',
+]

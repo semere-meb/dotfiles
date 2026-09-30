@@ -1,0 +1,146 @@
+[user]
+	name = Semere M. Mebrahtom
+	email = semere.meharena1@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+LacyNOF1o9Xom4k0SOjtHC86OJMT+oZDgB1zIr0i7 semere@nabro
+
+[gpg]
+	format = ssh
+
+[commit]
+    gpgSign = true
+    template = ~/.config/git/template
+    verbose = true  # add more context to commit messages
+
+[core]
+    autocrlf = input  # keep newlines as in input
+    compression = 9  # trade cpu for network
+    fsync = none
+
+[advice]  # disable advices
+    addEmptyPathspec = false
+    pushNonFastForward = false
+    statusHints = false
+
+[blame]
+    coloring = highlightRecent
+    date = relative
+
+[diff]
+    algorithm = histogram  # better diff algorithm
+    context = 3  # less context in diffs
+    renames = copies  # detect copies as renames in diffs
+    interHunkContext = 10  # merge near hunks in diffs
+    wsErrorHighlight = all  # highlight all whitespace errors in diffs
+
+[init]
+    defaultBranch = dev
+
+[log]
+    abbrevCommit = true  # short commits
+    graphColors  = blue,yellow,cyan,magenta,green,red
+
+[status]
+    branch = true
+    short = true
+    showStash = true
+    showUntrackedFiles = all  # show individual untracked files
+
+[pager]
+    branch = false  # no need to use pager for git branch
+    tag = false
+    diff = diff-so-fancy | $PAGER  # diff-so-fancy as diff pager
+
+[push]
+    autoSetupRemote = true  # easier to push new branches
+    default = current  # push only current branch by default
+    followTags = true  # push also tags
+    gpgSign = false  # my remotes doesn't support sign pushes
+
+    useForceIfIncludes = true  # way safer force pushes by default,
+                               # disable with `--no-force-if-includes`
+
+[pull]
+    rebase = true
+
+[rerere]
+    enabled = true  # enable reuse recorded resolution
+                    # (simplifies conflict resolution)
+
+[merge]
+    conflictStyle = zdiff3  # show all versions in conflicts
+
+[submodule]
+    fetchJobs = 16
+
+[rebase]
+    autoStash = true
+    autoSquash = true  # automatically squash fixup! and squash! commits
+    missingCommitsCheck = warn  # warn if rebasing with missing commits
+
+[pack]
+    threads = 0  # use all available threads
+    windowMemory = 1g  # use 1g of memory for pack window
+    packSizeLimit = 1g  # max size of a packfile
+
+# Integrity
+[transfer]
+    fsckObjects = true
+
+[receive]
+    fsckObjects = true
+
+[fetch]
+    fsckObjects = true
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = -taggerdate
+
+# Colors
+[color "blame"]
+    highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
+
+[color "branch"]
+    current  = magenta
+    local    = default
+    remote   = yellow
+    upstream = green
+    plain    = blue
+
+[color "diff"]
+    meta       = black bold
+    frag       = magenta
+    context    = white
+    whitespace = yellow reverse
+    old        = red
+
+[color "decorate"]
+    HEAD = red
+    branch = blue
+    tag = yellow
+    remoteBranch = magenta
+
+[color "diff-highlight"]
+    oldNormal = red
+    oldHighlight = red 52
+    newNormal = green
+    newHighlight = green 22
+
+[interactive]
+    diffFilter = diff-so-fancy --patch
+    singlekey = true
+
+[help]
+    autoCorrect = true  # auto-correct typos in git commands
+
+# Third-party: diff-so-fancy
+[diff-so-fancy]
+    markEmptyLines = false
+
+# Aliases
+[alias]
+    sync = !git pull && git push
+
+# URL shortcuts
